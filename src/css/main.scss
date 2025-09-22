@@ -1,1 +1,443 @@
+<<<<<<< HEAD
 /* Your SCSS here. */
+=======
+// Variables
+$bg: #0f1120;
+$fg: #e7e9ee;
+$brand: #7c5cff;
+$brand2: #1de9b6;
+
+$bp-1366: 1366px;
+$bp-1280: 1280px;
+$bp-1024: 1024px;
+$bp-900: 900px;
+
+// Base Styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial;
+  background: $bg;
+  color: $fg;
+}
+
+// Layout Components
+.wrap {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+}
+
+.stripe {
+  padding: 5rem 0;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.center {
+  min-height: 100svh;
+}
+
+// Header
+#hdr {
+  position: sticky;
+  top: 0;
+  background: rgba(15, 17, 32, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  transition: 0.3s;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand {
+  color: $fg;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: lighten($fg, 20%);
+    text-decoration: none;
+
+    &.active,
+    &:hover {
+      color: $brand2;
+    }
+  }
+}
+
+#toggle {
+  display: none;
+}
+
+#bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+
+  #bar-fill {
+    height: 100%;
+    background: $brand;
+    width: 0;
+  }
+}
+
+// Layout
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  p {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+
+  li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+// Buttons
+.btn {
+  background: $brand;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+
+  &.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Carousel
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+
+  #track {
+    display: flex;
+    transition: transform 0.4s;
+  }
+
+  .slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+
+    &:first-of-type {
+      left: 0.5rem;
+    }
+
+    &:last-of-type {
+      right: 0.5rem;
+    }
+  }
+}
+
+// Parallax
+.parallax {
+  background: url('../assets/parallax.jpg') center/cover fixed;
+  color: white;
+}
+
+// Video
+.video {
+  width: min(800px, 92vw);
+}
+
+// Footer
+.foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  gap: 0.75rem;
+
+  a {
+    color: $fg;
+
+    &:hover {
+      color: $brand2;
+    }
+  }
+}
+
+// Modal
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &.open {
+    display: flex;
+  }
+
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .dlg {
+    position: relative;
+    z-index: 1;
+    width: min(600px, 92vw);
+    max-height: min(80vh, 720px);
+    overflow: auto;
+    background: #15172b;
+    color: $fg;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    display: grid;
+    gap: 0.75rem;
+
+    h3 {
+      margin: 0.25rem 0 0.25rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #0f1120;
+      color: $fg;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+  }
+
+  .x {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: transparent;
+    border: 0;
+    color: $fg;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+}
+
+// Contact Section
+#contact {
+  p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  a {
+    color: $brand2;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+      color: lighten($brand2, 10%);
+    }
+  }
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+}
+
+// Responsive
+.video {
+  width: min(880px, 92vw);
+  height: auto;
+}
+
+.carousel .slide {
+  height: clamp(250px, 38vw, 450px);
+}
+
+/* 1366×768 & 1280×720 */
+@media (max-width: $bp-1366) {
+  .stripe {
+    padding: 4rem 0;
+  }
+
+  .wrap {
+    width: min(980px, 94vw);
+  }
+
+  nav {
+    padding: 0.8rem 0;
+  }
+}
+
+@media (max-width: $bp-1280) {
+  .wrap {
+    width: min(940px, 94vw);
+  }
+
+  .cols,
+  .grid {
+    gap: 0.75rem;
+  }
+}
+
+/* 1024×768 */
+@media (max-width: $bp-1024) {
+  .wrap {
+    width: min(820px, 94vw);
+  }
+
+  .cols,
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row {
+    gap: 0.5rem;
+  }
+
+  #menu a {
+    font-size: 0.95rem;
+    padding: 0.2rem 0.45rem;
+  }
+}
+
+/* 900px */
+@media (max-width: $bp-900) {
+  #toggle {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 100%;
+    background: rgba(15, 17, 32, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  .cols,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .center {
+    min-height: 92svh;
+  }
+
+  .stripe {
+    padding: 3.25rem 0;
+  }
+
+  .carousel .slide {
+    height: clamp(240px, 52vw, 360px);
+  }
+
+  .video {
+    width: 96vw;
+  }
+}
+
+@media (max-width: $bp-1024) {
+  .parallax {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35));
+      pointer-events: none;
+    }
+
+    .wrap {
+      position: relative;
+    }
+  }
+}
+>>>>>>> 0c22520 (setup1)
