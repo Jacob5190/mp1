@@ -1,13 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/main.scss">
+</head>
+<body>
+<header id="hdr">
+  <nav class="wrap">
+    <a class="brand" href="#home">Jacob's Profile Page</a>
+    <button id="toggle"><span></span><span></span><span></span></button>
+    <ul id="menu">
+      <li><a class="link" href="#home">Home</a></li>
+      <li><a class="link" href="#about">About</a></li>
+      <li><a class="link" href="#imgs">Images</a></li>
+      <li><a class="link" href="#skills">Skills</a></li>
+      <li><a class="link" href="#video">Video</a></li>
+      <li><a class="link" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div id="bar"><div id="bar-fill"></div></div>
+</header>
+
+<section id="home" class="stripe center">
+  <div class="wrap">
+    <h1>Hi, I'm Jacob</h1>
+    <p>Programmer • Coffe • Guitar</p>
+    <div class="row">
+      <a class="btn link" href="#imgs">See Images</a>
+      <button class="btn ghost" data-open="#modal">Contact</button>
+    </div>
+    <canvas id="c" width="600" height="160"></canvas>
+  </div>
+</section>
+
+<section id="about" class="stripe">
+  <div class="wrap">
+    <h2>About</h2>
+    <div class="cols">
+      <p>I build user-centric products.</p>
+      <p>I love guitar and coffee.</p>
+      <p>This page shows HTML5, SCSS, JS.</p>
+    </div>
+  </div>
+</section>
+
+<section id="imgs" class="stripe">
+  <div class="wrap">
+    <h2>My Life</h2>
+    <div class="carousel">
+      <button class="arrow" data-dir="-1"><i class="fa-solid fa-chevron-left"></i></button>
+      <div id="track">
+        <article class="slide"><img src="assets/slide1.jpg"><div class="cap"><h3>Img1</h3></div></article>
+        <article class="slide"><img src="assets/slide2.jpg"><div class="cap"><h3>Img2</h3></div></article>
+        <article class="slide"><img src="assets/slide3.jpg"><div class="cap"><h3>Img3</h3></div></article>
+      </div>
+      <button class="arrow" data-dir="1"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<section class="stripe parallax">
+  <div class="wrap"></div>
+</section>
+
+<section id="skills" class="stripe">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <ul class="grid">
+      <li><i class="fa-brands fa-java"></i> Java</li>
+      <li><i class="fa-solid fa-database"></i> SQL</li>
+      <li><i class="fa-brands fa-js"></i> JS</li>
+      <li><i class="fa-brands fa-html5"></i> HTML5</li>
+      <li><i class="fa-brands fa-css3-alt"></i> SCSS</li>
+      <li><i class="fa-solid fa-gears"></i> C++</li>
+    </ul>
+  </div>
+</section>
+
+<section id="video" class="stripe">
+  <div class="wrap">
+    <h2>Video</h2>
+    <video controls class="video">
+      <source src="assets/video.mov" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section id="contact" class="stripe">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p><a href="tel:+16506669186">(650)-666-9186</a></p>
+    <p><a href="mailto:jacobw14@illinois.edu">jacobw14@illinois.edu</a></p>
+    <button class="btn" data-open="#modal">Open Contact</button>
+  </div>
+</section>
+
+
+<footer class="stripe">
+  <div class="wrap foot">
+    <small>Jacob Wang</small>
+    <div class="social">
+      <a href="mailto:jacobw14@illinois.edu"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://github.com/Jacob5190"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<div id="modal" class="modal"><div class="backdrop" data-close></div><div class="dlg">
+  <button class="x" data-close><i class="fa-solid fa-xmark"></i></button>
+  <h3>Contact Me</h3>
+  <form id="f"><input placeholder="Name"><input type="email" placeholder="Email"><textarea></textarea><button class="btn">Send</button></form>
+</div></div>
+
+<script src="js/main.js"></script>
+</body>
 </html>

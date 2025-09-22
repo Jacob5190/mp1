@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-/* Your JS here. */
-console.log('Hello World!')
-=======
 // DOM
 const hdr = document.getElementById('hdr');
 const bar = document.getElementById('bar-fill');
@@ -138,4 +134,3 @@ document.querySelectorAll('[data-close], .backdrop').forEach(b => {
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
->>>>>>> 0c22520 (setup1)
