@@ -383,27 +383,23 @@ h2 {
 
 /* 900px */
 @media (max-width: $bp-900) {
-  #toggle {
-    display: block;
-  }
+  #toggle { display: block; position: relative; z-index: 3000; }
 
   #menu {
     display: none;
     position: absolute;
-    left: 1rem;
-    right: 1rem;
     top: 100%;
-    background: rgba(15, 17, 32, 0.98);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0.75rem;
+    left: 1rem; right: 1rem;
+    background: rgba(15,17,32,.98);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: .75rem;
+    padding: .5rem;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.5rem;
-
-    &.open {
-      display: flex;
-    }
+    gap: .25rem;
+    z-index: 2500;
   }
+
+  #menu.open { display: flex !important; }
 
   .cols,
   .grid {
@@ -444,3 +440,7 @@ h2 {
     }
   }
 }
+
+#bar, #bar * { pointer-events: none; }
+
+#hdr { position: sticky; top: 0; z-index: 2000; overflow: visible; }

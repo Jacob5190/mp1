@@ -22,8 +22,18 @@ const links = [
   document.querySelector('#menu a[href="#contact"]')
 ];
 
-// Menu Toggle
-toggle?.addEventListener('click', () => menu.classList.toggle('open'));
+if (toggle && menu && !toggle.dataset.bound) {
+  toggle.dataset.bound = '1';
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    console.log({
+      hasOpen: menu.classList.contains('open'),
+      computed: getComputedStyle(menu).display,
+      inline: menu.style.display
+    });
+  });
+}
+
 
 // Section and Active Link Detection
 let sectionTops = [];
